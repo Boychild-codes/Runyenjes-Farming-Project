@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShambaLink Harvest — Wholesale Produce & Seedlings | Nationwide Delivery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="brand">ShambaLink <span>Harvest</span></div>
+      <nav id="nav">
+        <button data-panel="home" class="active">Home</button>
+        <button data-panel="products">Products</button>
+        <button data-panel="order">Place Order</button>
+        <button data-panel="delivery">Delivery</button>
+        <button data-panel="contact">Contact</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME -->
+    <section id="home" class="panel active">
+      <div class="hero">
+        <div class="floating-items" aria-hidden="true">
+          <span class="float-item item-1">🥑</span>
+          <span class="float-item item-2">🌰</span>
+          <span class="float-item item-3">🥭</span>
+          <span class="float-item item-4">🍌</span>
+          <span class="float-item item-5">☕</span>
+        </div>
+
+        <div class="tag">WHOLESALE · NATIONWIDE DELIVERY</div>
+        <h1>Fresh produce & quality seedlings from Embu to your door.</h1>
+        <p>
+          We source directly from farmers in Runyenjes and across Embu County, 
+          then supply shops, hotels, nurseries, exporters and institutions all over Kenya.
+        </p>
+        <div class="hero-actions">
+          <button class="btn" onclick="document.querySelector('[data-panel=order]').click()">Place Wholesale Order</button>
+          <button class="btn secondary" onclick="document.querySelector('[data-panel=products]').click()">View Products</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">7+</div>
+          <div class="stat-label">Core crops</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Seedlings</div>
+          <div class="stat-label">Ready for planting</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Nationwide</div>
+          <div class="stat-label">Delivery coverage</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">Direct</div>
+          <div class="stat-label">From Embu farms</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>How we work</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <h3>We source</h3>
+            <p>Direct from trusted farmers in Embu ensuring consistent quality and fair farm-gate prices.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <h3>We supply</h3>
+            <p>Wholesale volumes of produce and seedlings for businesses across Kenya.</p>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <h3>We deliver</h3>
+            <p>Countrywide delivery. Transport is charged at KSh 2,000 per 100 km.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="panel">
+      <div class="card">
+        <h2>Our Products</h2>
+        <p class="muted" style="margin-bottom:1.5rem">Fresh produce and quality seedlings sourced from Embu. Prices are quoted based on volume and current availability.</p>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="produce">Fresh Produce</button>
+          <button class="tab" data-tab="seedlings">Seedlings</button>
+        </div>
+
+        <div id="produce-grid" class="product-grid"></div>
+        <div id="seedlings-grid" class="product-grid" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- PLACE ORDER -->
+    <section id="order" class="panel">
+      <div class="card">
+        <h2>Place a Wholesale Order</h2>
+        <p class="muted" style="margin-bottom:1.5rem">Fill in the details below. We’ll confirm availability, final pricing and delivery schedule.</p>
+
+        <div class="form-row">
+          <div>
+            <label for="o-name">Business / Your name *</label>
+            <input type="text" id="o-name" placeholder="e.g. Green Valley Hotel or ABC Nursery" />
+          </div>
+          <div>
+            <label for="o-phone">Phone / WhatsApp *</label>
+            <input type="text" id="o-phone" placeholder="07xx xxx xxx" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="o-product">Product *</label>
+            <select id="o-product">
+              <optgroup label="Fresh Produce">
+                <option value="Hass Avocados">Hass Avocados</option>
+                <option value="Macadamia">Macadamia</option>
+                <option value="Mangoes">Mangoes</option>
+                <option value="Bananas">Bananas</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Cassava">Cassava</option>
+                <option value="Muguka">Muguka</option>
+              </optgroup>
+              <optgroup label="Seedlings">
+                <option value="Hass Avocado seedlings">Hass Avocado seedlings</option>
+                <option value="Macadamia seedlings">Macadamia seedlings</option>
+                <option value="Mango seedlings">Mango seedlings</option>
+                <option value="Banana seedlings">Banana seedlings</option>
+                <option value="Coffee seedlings">Coffee seedlings</option>
+                <option value="Muguka seedlings">Muguka seedlings</option>
+                <option value="Flower seedlings">Flower seedlings</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label for="o-qty">Quantity *</label>
+            <input type="text" id="o-qty" placeholder="e.g. 300 kg or 1,000 seedlings" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div>
+            <label for="o-location">Delivery location *</label>
+            <input type="text" id="o-location" placeholder="Town / Area (e.g. Nairobi, Industrial Area)" />
+          </div>
+          <div>
+            <label for="o-distance">Approximate distance from Runyenjes (km)</label>
+            <input type="number" id="o-distance" min="0" step="10" placeholder="e.g. 150" />
+          </div>
+        </div>
+
+        <div class="transport-box">
+          <div>
+            <strong>Estimated transport cost</strong>
+            <p class="muted" style="margin:0.25rem 0 0;font-size:0.9rem">Charged at KSh 1000 per 100 km</p>
+          </div>
+          <div class="transport-price" id="transport-cost">KSh 0</div>
+        </div>
+
+        <label for="o-notes">Additional notes</label>
+        <textarea id="o-notes" rows="3" placeholder="Preferred delivery date, packaging needs, grade preference…"></textarea>
+
+        <button class="btn" id="order-btn" style="margin-top:0.5rem">Submit Order Request</button>
+
+        <div id="order-success" class="success-msg" style="display:none;">
+          Thank you! Your order request has been received. We will contact you shortly on WhatsApp/phone to confirm.
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERY -->
+    <section id="delivery" class="panel">
+      <div class="card">
+        <h2>Nationwide Delivery</h2>
+        <p class="muted" style="margin-bottom:1.5rem">We deliver across Kenya. Transport is paid by the customer at a flat rate of <strong>KSh 2,000 per 100 km</strong> from Runyenjes.</p>
+        <div class="delivery-grid" id="delivery-grid"></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="panel">
+      <div class="card">
+        <h2>Contact Us</h2>
+        <p class="muted" style="margin-bottom:1.5rem">Ready to place an order or ask a question? Reach us directly.</p>
+
+        <div class="contact-grid">
+          <div class="contact-item">
+            <div class="contact-label">Location</div>
+            <div class="contact-value">Runyenjes, Embu County</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-value" id="contact-phone">+254 791 567 711</div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-label">Business Hours</div>
+            <div class="contact-value">Mon – Sat · 7:00 AM – 6:00 PM</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">ShambaLink <span>Harvest</span></div>
+      <p class="footer-tagline">Wholesale Produce & Seedlings · Runyenjes, Embu · Deliveries countrywide</p>
+
+      <div class="footer-social">
+        <a href="https://wa.me/254791567711" target="_blank" class="social-icon whatsapp" title="WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+        <a href="https://facebook.com/" target="_blank" class="social-icon facebook" title="Facebook">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+        <a href="https://x.com/" target="_blank" class="social-icon x" title="X">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.792l7.73-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        </a>
+      </div>
+
+      <p class="footer-copy">© 2026 ShambaLink Harvest. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/254791567711" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
