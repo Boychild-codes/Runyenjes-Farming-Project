@@ -5,7 +5,7 @@ const PRODUCE = [
     desc: "Export-grade and local market quality. Consistent supply from Embu highlands.",
     image: "Images/Hass Avocado.png"
   },
-  { 
+  {  
     name: "Macadamia", 
     desc: "Dried and sorted nuts. Ready for processors, exporters and retailers.",
     image: "Images/Macadamia.png"
@@ -136,7 +136,7 @@ function updateTransport() {
 
 document.getElementById("o-distance").addEventListener("input", updateTransport);
 
-// ——— Order Form ———
+
 // ——— Order Form ———
 document.getElementById("order-btn").addEventListener("click", async () => {
   const name = document.getElementById("o-name").value.trim();
