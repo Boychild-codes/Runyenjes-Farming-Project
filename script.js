@@ -138,7 +138,6 @@ document.getElementById("o-distance").addEventListener("input", updateTransport)
 
 
 // ——— Order Form ———
-// ——— Order Form ———
 document.getElementById("order-btn").addEventListener("click", async () => {
   const name = document.getElementById("o-name").value.trim();
   const phone = document.getElementById("o-phone").value.trim();
@@ -149,16 +148,12 @@ document.getElementById("order-btn").addEventListener("click", async () => {
   const notes = document.getElementById("o-notes").value.trim();
   const transportCost = document.getElementById("transport-cost").textContent;
 
-  // Validation
   if (!name || !phone || !qty || !location) {
     alert("Please fill in all required fields (Name, Phone, Quantity and Location).");
     return;
   }
 
   const button = document.getElementById("order-btn");
-  const originalText = button.textContent;
-  
-  // Disable button while sending
   button.disabled = true;
   button.textContent = "Sending...";
 
@@ -183,32 +178,7 @@ document.getElementById("order-btn").addEventListener("click", async () => {
     const result = await response.json();
 
     if (response.ok) {
-      // Show success message
       document.getElementById("order-success").style.display = "block";
-
-      // Clear the form
-      ["o-name", "o-phone", "o-qty", "o-location", "o-distance", "o-notes"].forEach(id => {
-        document.getElementById(id).value = "";
-      });
-      updateTransport();
-
-      // Hide success message after 6 seconds
-      setTimeout(() => {
-        document.getElementById("order-success").style.display = "none";
-      }, 6000);
-    } else {
-      alert("Failed to send order. Please try again or contact us on WhatsApp.");
-      console.error(result);
-    }
-  } catch (error) {
-    alert("Something went wrong. Please try again or contact us on WhatsApp.");
-    console.error(error);
-  }
-
-  // Re-enable button
-  button.disabled = false;
-  button.textContent = originalText;
-});
 
       // Clear form
       ["o-name", "o-phone", "o-qty", "o-location", "o-distance", "o-notes"].forEach(id => {
