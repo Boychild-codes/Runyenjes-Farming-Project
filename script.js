@@ -137,7 +137,8 @@ function updateTransport() {
 document.getElementById("o-distance").addEventListener("input", updateTransport);
 
 // ——— Order Form ———
-document.getElementById("order-btn").addEventListener("click", () => {
+// ——— Order Form ———
+document.getElementById("order-btn").addEventListener("click", async () => {
   const name = document.getElementById("o-name").value.trim();
   const phone = document.getElementById("o-phone").value.trim();
   const product = document.getElementById("o-product").value;
@@ -145,29 +146,60 @@ document.getElementById("order-btn").addEventListener("click", () => {
   const location = document.getElementById("o-location").value.trim();
   const distance = document.getElementById("o-distance").value;
   const notes = document.getElementById("o-notes").value.trim();
+  const transportCost = document.getElementById("transport-cost").textContent;
 
   if (!name || !phone || !qty || !location) {
     alert("Please fill in all required fields (Name, Phone, Quantity and Location).");
     return;
   }
 
-  const orders = JSON.parse(localStorage.getItem("rh_orders") || "[]");
-  orders.unshift({
-    date: new Date().toLocaleString("en-KE"),
-    name, phone, product, qty, location, distance, notes
-  });
-  localStorage.setItem("rh_orders", JSON.stringify(orders));
+  const button = document.getElementById("order-btn");
+  button.disabled = true;
+  button.textContent = "Sending...";
 
-  document.getElementById("order-success").style.display = "block";
-  
-  ["o-name", "o-phone", "o-qty", "o-location", "o-distance", "o-notes"].forEach(id => {
-    document.getElementById(id).value = "";
-  });
-  updateTransport();
+  try {
+    const response = await fetch("/api/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        phone,
+        product,
+        quantity: qty,
+        location,
+        distance,
+        notes,
+        transportCost
+      })
+    });
 
-  setTimeout(() => {
-    document.getElementById("order-success").style.display = "none";
-  }, 6000);
+    const result = await response.json();
+
+    if (response.ok) {
+      document.getElementById("order-success").style.display = "block";
+
+      // Clear form
+      ["o-name", "o-phone", "o-qty", "o-location", "o-distance", "o-notes"].forEach(id => {
+        document.getElementById(id).value = "";
+      });
+      updateTransport();
+
+      setTimeout(() => {
+        document.getElementById("order-success").style.display = "none";
+      }, 6000);
+    } else {
+      alert("Failed to send order. Please try again or contact us on WhatsApp.");
+      console.error(result);
+    }
+  } catch (error) {
+    alert("Something went wrong. Please try again or contact us on WhatsApp.");
+    console.error(error);
+  }
+
+  button.disabled = false;
+  button.textContent = "Submit Order Request";
 });
 
 // ——— Delivery Areas ———
