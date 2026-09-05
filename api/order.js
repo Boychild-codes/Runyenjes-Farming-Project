@@ -22,66 +22,22 @@ export default async function handler(req, res) {
     }
 
     const emailBody = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-</head>
-<body style="font-family: Arial, sans-serif; background: #f4faf6; padding: 20px; color: #1a1f1c;">
-  <div style="max-width: 560px; margin: 0 auto; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
-    
-    <!-- Header -->
-    <div style="background: #0F3D2E; padding: 24px 28px;">
-      <h1 style="color: white; margin: 0; font-size: 22px;">ShambaLink Harvest</h1>
-      <p style="color: #c9a227; margin: 6px 0 0; font-size: 14px;">New Wholesale Order</p>
-    </div>
+New Wholesale Order - ShambaLink Harvest
 
-    <!-- Body -->
-    <div style="padding: 28px;">
-      <table style="width: 100%; border-collapse: collapse; font-size: 15px;">
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62; width: 160px;">Name / Business</td>
-          <td style="padding: 10px 0; font-weight: 600;">${name}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Phone / WhatsApp</td>
-          <td style="padding: 10px 0; font-weight: 600;">${phone}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Product</td>
-          <td style="padding: 10px 0; font-weight: 600;">${product}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Quantity</td>
-          <td style="padding: 10px 0; font-weight: 600;">${quantity}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Delivery Location</td>
-          <td style="padding: 10px 0; font-weight: 600;">${location}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Distance</td>
-          <td style="padding: 10px 0; font-weight: 600;">${distance || "Not provided"} km</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62;">Transport Cost</td>
-          <td style="padding: 10px 0; font-weight: 600; color: #0F3D2E;">${transportCost || "Not calculated"}</td>
-        </tr>
-        <tr>
-          <td style="padding: 10px 0; color: #5c6b62; vertical-align: top;">Notes</td>
-          <td style="padding: 10px 0;">${notes || "None"}</td>
-        </tr>
-      </table>
-    </div>
+Name / Business: ${name}
+Phone / WhatsApp: ${phone}
+Product: ${product}
+Quantity: ${quantity}
+Delivery Location: ${location}
+Distance: ${distance || "Not provided"} km
+Estimated Transport: ${transportCost || "Not calculated"}
 
-    <!-- Footer -->
-    <div style="background: #f4faf6; padding: 16px 28px; font-size: 13px; color: #5c6b62; border-top: 1px solid #e5e7eb;">
-      Received on ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}
-    </div>
-  </div>
-</body>
-</html>
-    `;
+Additional Notes:
+${notes || "None"}
+
+---
+Received on: ${new Date().toLocaleString("en-KE", { timeZone: "Africa/Nairobi" })}
+    `.trim();
 
     // Send email using Resend
     const response = await fetch("https://api.resend.com/emails", {
@@ -94,7 +50,7 @@ export default async function handler(req, res) {
         from: "ShambaLink Orders <onboarding@resend.dev>",
         to: ["stephenjiru@gmail.com"],
         subject: `New Order: ${product} - ${name}`,
-        html: emailBody
+        text: emailBody
       })
     });
 

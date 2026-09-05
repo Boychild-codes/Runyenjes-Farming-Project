@@ -128,8 +128,8 @@ main {
 /* ===== Hero ===== */
 .hero {
   background: 
-    linear-gradient(135deg, rgba(15, 61, 46, 0.85) 0%, rgba(26, 60, 42, 0.90) 100%),
-    url('Images/Hero BG.png') left center / cover no-repeat;
+    linear-gradient(135deg, rgba(15, 61, 46, 0.88) 0%, rgba(26, 60, 42, 0.92) 100%),
+    url('Images/hero-image.png') center/cover no-repeat;
   color: var(--white);
   border-radius: var(--radius);
   padding: 2rem 1.4rem;
@@ -317,7 +317,7 @@ main {
   border-color: var(--green-700);
 }
 
-/* ===== Product Grid & Cards ===== */
+/* ===== Product Grid & Cards with Images ===== */
 .product-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -482,11 +482,11 @@ textarea:focus {
   background: #d4edda;
   color: #155724;
   border: 1px solid #c3e6cb;
-  border-radius: 12px;
-  padding: 1.1rem 1.3rem;
-  margin-top: 1.25rem;
+  border-radius: 10px;
+  padding: 1rem 1.15rem;
+  margin-top: 1.15rem;
+  font-weight: 500;
   font-size: 0.95rem;
-  line-height: 1.5;
 }
 
 /* ===== Delivery grid ===== */
@@ -604,15 +604,6 @@ footer {
 .footer-copy {
   font-size: 0.85rem;
   color: rgba(255, 255, 255, 0.55);
-}
-
-.footer-copy a {
-  color: #c9a227;
-  text-decoration: none;
-}
-
-.footer-copy a:hover {
-  text-decoration: underline;
 }
 
 /* ===== Floating WhatsApp ===== */
